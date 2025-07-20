@@ -1,13 +1,17 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader};
 use std::process::Command;
-use notify::{ErrorKind, Event, RecursiveMode, Result, Watcher};
+use notify::{Event, RecursiveMode, Result, Watcher};
 use std::{path::Path, sync::mpsc};
 
 fn main()  -> Result<()> {
     // Get File Confignya dulu
     // TODO: DIbikin toml maybe?
     let path = "/home/fforfachriza/.local/state/quickshell/user/generated/color.txt";
+
+    if let Err(e) = apply_color(path) {
+        eprintln!("Error: {}", e);
+    }
 
     // Watcher
     let (tx, rx) = mpsc::channel::<Result<Event>>();
