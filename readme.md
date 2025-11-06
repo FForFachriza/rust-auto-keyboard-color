@@ -32,13 +32,13 @@ Before building, you must update the hardcoded file path in the source code to m
 Open `src/main.rs` and locate this line:
 
 ```rust
-let path = "/home/fforfachriza/.local/state/quickshell/user/generated/color.txt";
+const COLORS_PATH: &str ="/home/fforfachriza/.local/state/quickshell/user/generated/colors.json";
 ```
 
 Replace it with your actual path to the hex color file, for example:
 
 ```rust
-let path = "/home/your_username/.config/your_custom_path/color.txt";
+const COLORS_PATH: &str ="/home/your_username/.local/state/quickshell/user/generated/colors.json";
 ```
 
 Save the file after editing.
